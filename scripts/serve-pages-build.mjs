@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises'
 import { extname, resolve, sep } from 'node:path'
 
 const root = resolve('dist')
-const prefix = '/Maisondebrah/'
+const prefix = '/Maisondebrah-et/'
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp' }
 createServer(async (request, response) => {
   const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname)
@@ -19,4 +19,4 @@ createServer(async (request, response) => {
     response.writeHead(404)
     response.end()
   }
-}).listen(4174, '127.0.0.1', () => console.log('Pages build preview: http://127.0.0.1:4174/Maisondebrah/'))
+}).listen(4174, '127.0.0.1', () => console.log('Pages build preview: http://127.0.0.1:4174/Maisondebrah-et/'))

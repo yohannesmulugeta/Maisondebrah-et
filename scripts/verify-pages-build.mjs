@@ -5,7 +5,7 @@ const page = await browser.newPage({ viewport: { width: 390, height: 844 } })
 const errors = []
 page.on('pageerror', error => errors.push(error.message))
 try {
-  await page.goto('http://127.0.0.1:4174/Maisondebrah/', { waitUntil: 'networkidle' })
+  await page.goto('http://127.0.0.1:4174/Maisondebrah-et/', { waitUntil: 'networkidle' })
   console.log('Initial page errors:', errors, 'body:', (await page.locator('body').innerText()).slice(0, 150))
   const logoWidth = await page.locator('header img').evaluate(image => image.naturalWidth)
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)
