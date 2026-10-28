@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "build:pages": "tsc -b && vite build --base /Maisondebrah-et/",
+    "build": "node scripts/validate-cms-content.mjs && tsc -b && vite build",
+    "build:pages": "node scripts/validate-cms-content.mjs && tsc -b && vite build --base /Maisondebrah-et/",
     "lint": "oxlint",
     "preview": "vite preview"
   },
