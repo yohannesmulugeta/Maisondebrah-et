@@ -28,7 +28,7 @@ The original `src/data/posts.json` is retained as an import snapshot, while the 
 
 ## Deploy on Cloudflare Pages
 
-Connect this GitHub repository to a Cloudflare Pages project with production branch `main`, build command `npm run build`, output directory `dist`, and Node.js 24 to match the GitHub Pages workflow. The root Cloudflare address uses normal React routes; the existing GitHub Pages build keeps its `/Maisondebrah-et/` base and hash routes. Verify the `pages.dev` preview and one real CMS edit before attaching a custom domain.
+Cloudflare Pages project `maisondebrah-et` is connected to this GitHub repository with production branch `main`, build command `npm run build`, and output directory `dist`. `.node-version` pins Node.js 24 to match the GitHub Pages workflow. The Cloudflare address is `https://maisondebrah-et.pages.dev/`. It uses normal React routes; the existing GitHub Pages build keeps its `/Maisondebrah-et/` base and hash routes. Verify the Cloudflare site and one real CMS edit before attaching a custom domain.
 
 The browser verification script expects the development server at `http://127.0.0.1:5174/`. Change `origin` in `scripts/verify-local.mjs` if Vite uses another port, then run `node scripts/verify-local.mjs`.
 
@@ -41,3 +41,4 @@ The browser verification script expects the development server at `http://127.0.
 - No backend, database, or payment flow is included. GitHub Pages hosts this static copy; it is not connected to the original WordPress site.
 
 Before using copied media or content on a public deployment, confirm you have the rights to do so and obtain the original site's backend/export if identical private workflows are required.
+
