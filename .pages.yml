@@ -1,0 +1,184 @@
+media:
+  input: public/media
+  output: /media
+  categories: [image]
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: user
+
+content:
+  - name: homepage
+    label: Homepage
+    type: file
+    path: src/content/home.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields:
+      - name: announcement
+        label: Announcement bar
+        type: string
+        required: true
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - name: eyebrow
+            type: string
+          - name: title
+            type: string
+            required: true
+          - name: description
+            type: text
+          - name: collectionLink
+            label: Collection button
+            type: string
+          - name: brochureButton
+            label: Brochure button
+            type: string
+      - name: categories
+        label: Categories section
+        type: object
+        fields:
+          - name: eyebrow
+            type: string
+          - name: title
+            type: string
+          - name: link
+            label: Catalogue link
+            type: string
+      - name: arrivals
+        label: New arrivals section
+        type: object
+        fields:
+          - name: eyebrow
+            type: string
+          - name: title
+            type: string
+          - name: link
+            label: Catalogue link
+            type: string
+      - name: story
+        label: Story section
+        type: object
+        fields:
+          - name: eyebrow
+            type: string
+          - name: title
+            type: string
+          - name: description
+            type: text
+          - name: link
+            label: About link
+            type: string
+      - name: work
+        label: Work with us section
+        type: object
+        fields:
+          - name: eyebrow
+            type: string
+          - name: title
+            type: string
+          - name: tradeTitle
+            label: Trade card title
+            type: string
+          - name: tradeSubtitle
+            label: Trade card subtitle
+            type: string
+          - name: hospitalityTitle
+            label: Hospitality card title
+            type: string
+          - name: hospitalitySubtitle
+            label: Hospitality card subtitle
+            type: string
+          - name: franchiseTitle
+            label: Franchise card title
+            type: string
+          - name: franchiseSubtitle
+            label: Franchise card subtitle
+            type: string
+      - name: showroom
+        label: Showroom section
+        type: object
+        fields:
+          - name: eyebrow
+            type: string
+          - name: title
+            type: string
+          - name: description
+            type: text
+          - name: link
+            label: Showroom link
+            type: string
+      - name: journal
+        label: Journal section
+        type: object
+        fields:
+          - name: eyebrow
+            type: string
+          - name: title
+            type: string
+          - name: link
+            label: All news link
+            type: string
+          - name: first
+            label: First story card
+            type: object
+            fields:
+              - name: title
+                type: string
+              - name: summary
+                type: string
+              - name: path
+                label: Website path
+                type: string
+                required: true
+              - name: image
+                type: image
+          - name: second
+            label: Second story card
+            type: object
+            fields:
+              - name: title
+                type: string
+              - name: summary
+                type: string
+              - name: path
+                label: Website path
+                type: string
+                required: true
+              - name: image
+                type: image
+  - name: posts
+    label: Posts
+    type: collection
+    path: src/content/posts
+    format: json
+    filename: "{primary}.json"
+    operations:
+      create: false
+      rename: false
+      delete: false
+    view:
+      primary: title
+      fields: [title, date]
+      sort: [date, title]
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: date
+        type: date
+        options:
+          time: true
+          format: yyyy-MM-dd'T'HH:mm:ss
+      - name: content
+        label: Article
+        type: rich-text
+        options:
+          format: html
+          media: false
